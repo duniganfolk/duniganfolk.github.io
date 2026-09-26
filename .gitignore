@@ -1,0 +1,8 @@
+# Local tooling and notes - not part of the published site
+CLAUDE.md
+.claude/
+.DS_Store
+
+# Redesign scratch file - not part of the published site
+redesign.html
+redesign-navy.html

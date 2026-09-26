@@ -15,7 +15,7 @@
     <meta name="description" content="Dunigan Folk is a Postdoctoral Fellow at the University of Pennsylvania studying time use, technology, happiness, and social connection. Works with Angela Duckworth and Lyle Ungar.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Nunito+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
     <style>
         *, *::before, *::after {
             margin: 0;
@@ -24,20 +24,24 @@
         }
 
         :root {
-            --color-bg: #f5f4f1;
-            --color-bg-alt: #eceae5;
-            --color-nav: #7a9bb5;
-            --color-nav-text: #ffffff;
-            --color-text: #3a3a3a;
-            --color-text-light: #6a6a6a;
-            --color-accent: #5e829a;
-            --color-accent-light: #4e7289;
-            --color-link: #5e829a;
-            --color-link-hover: #4e7289;
-            --color-border: #d0cdc7;
-            --font-serif: 'Lora', Georgia, serif;
-            --font-sans: 'Nunito Sans', 'Nunito', Arial, sans-serif;
-            --max-width: 1400px;
+            --color-bg: #f5efe1;
+            --color-bg-alt: #ece4d1;
+            --color-nav: #5a1f2b;
+            --color-brand: #5a1f2b;
+            --color-nav-rule: #5a1f2b;
+            --color-text-strong: #1a1a1a;
+            --color-nav-text: #f5efe1;
+            --color-heading: #2b2522;
+            --color-text: #5a4f49;
+            --color-text-light: #7d7168;
+            --color-accent: #1f6cb0;
+            --color-accent-light: #4a8ac9;
+            --color-link: #5a1f2b;
+            --color-link-hover: #44161f;
+            --color-border: #ddd1b9;
+            --font-serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+            --font-sans: 'Newsreader', Georgia, 'Times New Roman', serif;
+            --max-width: 1100px;
         }
 
         html {
@@ -45,7 +49,7 @@
         }
 
         body {
-            font-family: var(--font-serif);
+            font-family: var(--font-sans);
             color: var(--color-text);
             background: var(--color-bg);
             line-height: 1.7;
@@ -59,8 +63,8 @@
             top: 0;
             z-index: 100;
             background: var(--color-nav);
-            border-top: 5px solid #5e829a;
-            border-bottom: 5px solid #5e829a;
+            border-top: 7px solid var(--color-nav-rule);
+            border-bottom: 7px solid var(--color-nav-rule);
         }
 
         .nav-inner {
@@ -70,22 +74,18 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            height: 50px;
+            height: 88px;
         }
 
         .nav-name {
             font-family: var(--font-serif);
-            font-size: 1.35rem;
+            font-size: 2.15rem;
             font-weight: 700;
             color: var(--color-nav-text);
             text-decoration: none;
-            letter-spacing: 0.01em;
+            letter-spacing: 0.005em;
+            line-height: 1;
             transition: opacity 0.2s;
-        }
-
-        .nav-name.hidden {
-            opacity: 0;
-            pointer-events: none;
         }
 
         .nav-links {
@@ -96,13 +96,12 @@
 
         .nav-links a {
             font-family: var(--font-serif);
-            font-size: 0.9rem;
+            font-size: 1.35rem;
             font-weight: 500;
             color: var(--color-nav-text);
             text-decoration: none;
-            letter-spacing: 0.03em;
-            text-transform: uppercase;
-            font-weight: 700;
+            letter-spacing: 0.01em;
+            font-weight: 600;
             transition: opacity 0.2s;
             cursor: pointer;
             opacity: 0.7;
@@ -156,29 +155,45 @@
             padding-bottom: 3rem;
         }
 
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            margin: -1px;
+            padding: 0;
+            overflow: hidden;
+            clip: rect(0 0 0 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
         .hero-text h1 {
             font-family: var(--font-serif);
             font-size: 2.6rem;
             font-weight: 700;
             margin-bottom: 1rem;
-            color: var(--color-text);
-        }
-
-        .hero-text .subtitle {
-            font-size: 1.15rem;
-            color: var(--color-text-light);
-            margin-bottom: 2rem;
-            line-height: 1.6;
+            color: var(--color-heading);
         }
 
         .hero-text .bio {
-            font-size: 1.2rem;
-            color: var(--color-text);
-            line-height: 2;
+            font-size: 1.15rem;
+            color: var(--color-heading);
+            line-height: 1.65;
+            max-width: 30em;
         }
 
         .hero-text .bio p {
-            margin-bottom: 1.8rem;
+            margin-bottom: 1.4rem;
+        }
+
+        .hero-text .bio p:first-of-type {
+            font-family: var(--font-serif);
+            font-size: clamp(1.5rem, 1.1rem + 1.4vw, 2.1rem);
+            font-weight: 500;
+            line-height: 1.35;
+            letter-spacing: -0.005em;
+            color: var(--color-heading);
+            margin-bottom: 1.7rem;
         }
 
         .hero-photo {
@@ -189,10 +204,10 @@
 
         .hero-photo img {
             width: 100%;
-            max-width: 400px;
-            border-radius: 6px;
+            max-width: clamp(260px, 30vw, 400px);
+            border-radius: 50%;
             object-fit: cover;
-            background: var(--color-bg-alt);
+            background: transparent;
             border: none;
         }
 
@@ -213,35 +228,53 @@
         }
 
         .contact-row {
-            margin-top: 1.5rem;
+            margin-top: 2rem;
             display: flex;
-            gap: 1.5rem;
+            gap: 1rem;
             flex-wrap: wrap;
         }
 
         .contact-row a {
-            font-size: 0.95rem;
-            color: var(--color-link);
+            display: inline-block;
+            font-family: var(--font-serif);
+            font-size: 1.02rem;
+            font-weight: 600;
+            letter-spacing: 0.015em;
+            line-height: 1;
+            color: #f5efe1;
+            background: var(--color-link);
             text-decoration: none;
-            font-weight: 500;
-            padding: 0.3rem 0.8rem;
-            border: 1px solid var(--color-link);
-            border-radius: 3px;
-            transition: all 0.2s;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            transition: background 0.18s ease;
         }
 
         .contact-row a:hover {
-            background: var(--color-link);
-            color: #ffffff;
+            background: var(--color-link-hover);
+        }
+
+        .contact-row a:focus-visible {
+            outline: 2px solid var(--color-heading);
+            outline-offset: 3px;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .contact-row a {
+                transition: none;
+            }
+            .contact-row a:hover {
+                transform: none;
+            }
         }
 
         /* ---- Publications ---- */
         .page-title {
             font-family: var(--font-serif);
-            font-size: 1.8rem;
+            font-size: 2rem;
             font-weight: 600;
             margin-bottom: 0.5rem;
-            color: var(--color-text);
+            color: var(--color-heading);
         }
 
         .page-subtitle {
@@ -255,7 +288,7 @@
         }
 
         .pub-item {
-            padding: 1.5rem 0;
+            padding: 1.75rem 0;
             border-bottom: 1px solid var(--color-border);
         }
 
@@ -264,9 +297,9 @@
         }
 
         .pub-year {
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: var(--color-accent);
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--color-brand);
             text-transform: uppercase;
             letter-spacing: 0.06em;
             margin-bottom: 0.35rem;
@@ -274,51 +307,48 @@
 
         .pub-title {
             font-family: var(--font-serif);
-            font-size: 1.3rem;
-            font-weight: 400;
-            color: var(--color-text);
-            margin-bottom: 0.3rem;
-            line-height: 1.5;
+            font-size: 1.45rem;
+            font-weight: 600;
+            color: var(--color-heading);
+            margin-bottom: 0.45rem;
+            line-height: 1.35;
         }
 
         .pub-authors {
-            font-size: 1.1rem;
+            font-size: 1.02rem;
             color: var(--color-text);
-            margin-bottom: 0.25rem;
+            margin-bottom: 0.15rem;
         }
 
         .pub-authors strong {
-            color: var(--color-text);
+            color: var(--color-text-strong);
             font-weight: 700;
         }
 
         .pub-venue {
-            font-size: 1.1rem;
+            font-size: 1.02rem;
             font-style: italic;
             color: var(--color-text);
-            margin-bottom: 0.6rem;
+            margin-bottom: 0;
         }
 
-        .pub-links {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .pub-links a {
-            font-size: 0.8rem;
+        .pub-title a.pub-link {
+            display: inline-block;
             color: var(--color-link);
             text-decoration: none;
-            font-weight: 500;
-            padding: 0.2rem 0.6rem;
-            border: 1px solid var(--color-link);
-            border-radius: 3px;
-            transition: all 0.2s;
+            font-size: 0.85em;
+            font-weight: 600;
+            transition: transform 0.15s ease, color 0.15s ease;
         }
 
-        .pub-links a:hover {
-            background: var(--color-link);
-            color: #ffffff;
+        .pub-title a.pub-link:hover {
+            color: var(--color-link-hover);
+            transform: translate(2px, -2px);
+        }
+
+        .pub-title a.pub-link:focus-visible {
+            outline: 2px solid var(--color-link);
+            outline-offset: 2px;
         }
 
         .pub-media {
@@ -346,7 +376,7 @@
         }
 
         .pub-media-list a {
-            color: var(--color-link);
+            color: var(--color-accent);
             text-decoration: none;
         }
 
@@ -366,20 +396,23 @@
         .cv-download {
             display: inline-block;
             margin-bottom: 2rem;
-            padding: 0.2rem 0.6rem;
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: var(--color-link);
-            background: transparent;
-            border: 1px solid var(--color-link);
-            border-radius: 3px;
+            padding: 0.8rem 1.5rem;
+            font-size: 1.02rem;
+            font-weight: 600;
+            letter-spacing: 0.015em;
+            line-height: 1;
+            color: #f5efe1;
+            background: var(--color-link);
+            border: none;
+            border-radius: 4px;
             text-decoration: none;
-            transition: all 0.2s;
+            transition: background 0.18s ease;
         }
 
         .cv-download:hover {
-            background: var(--color-link);
-            color: #ffffff;
+            background: var(--color-link-hover);
+            border-color: var(--color-link-hover);
+            color: #f5efe1;
         }
 
         .cv-embed {
@@ -407,7 +440,7 @@
         }
 
         /* ---- Responsive ---- */
-        @media (max-width: 700px) {
+        @media (max-width: 860px) {
             .hamburger {
                 display: flex;
             }
@@ -415,7 +448,7 @@
             .nav-links {
                 display: none;
                 position: absolute;
-                top: 64px;
+                top: 102px;
                 left: 0;
                 right: 0;
                 background: var(--color-nav);
@@ -459,7 +492,7 @@
     <!-- Navigation -->
     <nav>
         <div class="nav-inner">
-            <a href="#" class="nav-name hidden" id="nav-name" onclick="showPage('home')">Dunigan Folk</a>
+            <a href="#" class="nav-name" id="nav-name" onclick="showPage('home')">Dunigan Folk</a>
             <button class="hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
                 <span></span><span></span><span></span>
             </button>
@@ -475,16 +508,13 @@
     <div id="page-home" class="page active">
         <section class="hero">
             <div class="hero-text">
-                <h1>Dunigan Folk</h1>
-                <p class="subtitle">
-                    Postdoctoral Fellow &bull; University of Pennsylvania
-                </p>
+                <h1 class="visually-hidden">Dunigan Folk</h1>
                 <div class="bio">
                     <p>
-                        I am a Postdoctoral Fellow at the University of Pennsylvania working with Dr. Angela Duckworth and Dr. Lyle Ungar. I study how time use and emerging technology influence our happiness and feelings of social connection. I'm particularly interested in understanding when turning to AI for companionship makes us feel more or less lonely.
+                        I study the role of social connection in living a happy life, and what happens to our sense of connection when we turn to AI, rather than people, for companionship.
                     </p>
                     <p>
-                        I received my PhD in Social and Personality Psychology from the University of British Columbia while working under the supervision of Dr. Liz Dunn and Dr. Steve Heine.
+                        I am currently a Postdoctoral Fellow at the University of Pennsylvania working with Dr. Angela Duckworth and Dr. Lyle Ungar. I received my PhD in Social and Personality Psychology from the University of British Columbia while working under the supervision of Dr. Liz Dunn and Dr. Steve Heine.
                     </p>
                 </div>
                 <div class="contact-row">
@@ -493,7 +523,7 @@
                 </div>
             </div>
             <div class="hero-photo">
-                <img src="realheadshot.png" alt="Dunigan Folk">
+                <img src="headshot_circle_1f6cb0.png" alt="Dunigan Folk">
             </div>
         </section>
     </div>
@@ -507,33 +537,24 @@
 
                 <li class="pub-item">
                     <div class="pub-year">2026</div>
-                    <div class="pub-title">How does turning to AI for companionship predict loneliness and vice versa?</div>
+                    <div class="pub-title">How does turning to AI for companionship predict loneliness and vice versa?&nbsp;<a class="pub-link" href="https://doi.org/10.1177/09567976261427747" target="_blank" rel="noopener" aria-label="Read paper (opens in new tab)">&#8599;</a></div>
                     <div class="pub-authors"><strong>Folk, D.</strong> &amp; Dunn, E.</div>
                     <div class="pub-venue">Psychological Science</div>
-                    <div class="pub-links">
-                        <a href="https://doi.org/10.1177/09567976261427747" target="_blank">Link</a>
-                    </div>
-                </li>
+                                    </li>
 
                 <li class="pub-item">
                     <div class="pub-year">2026</div>
-                    <div class="pub-title">What does a good day look like?: An interpretable machine learning approach to the American Time Use Survey</div>
+                    <div class="pub-title">What does a good day look like?: An interpretable machine learning approach to the American Time Use Survey&nbsp;<a class="pub-link" href="https://doi.org/10.1093/pnasnexus/pgag014" target="_blank" rel="noopener" aria-label="Read paper (opens in new tab)">&#8599;</a></div>
                     <div class="pub-authors"><strong>Folk, D.</strong>, Henninger, M., &amp; Dunn, E.</div>
                     <div class="pub-venue">PNAS Nexus</div>
-                    <div class="pub-links">
-                        <a href="https://doi.org/10.1093/pnasnexus/pgag014" target="_blank">Link</a>
-                    </div>
-                </li>
+                                    </li>
 
                 <li class="pub-item">
                     <div class="pub-year">2026</div>
-                    <div class="pub-title">Everything is better together: Analyzing the relationship between socializing and happiness in the American Time Use Survey</div>
+                    <div class="pub-title">Everything is better together: Analyzing the relationship between socializing and happiness in the American Time Use Survey&nbsp;<a class="pub-link" href="https://doi.org/10.1177/19485506251364333" target="_blank" rel="noopener" aria-label="Read paper (opens in new tab)">&#8599;</a></div>
                     <div class="pub-authors"><strong>Folk, D.</strong> &amp; Dunn, E.</div>
                     <div class="pub-venue">Social Psychological and Personality Science</div>
-                    <div class="pub-links">
-                        <a href="https://doi.org/10.1177/19485506251364333" target="_blank">Link</a>
-                    </div>
-                    <div class="pub-media">
+                                        <div class="pub-media">
                         <div class="pub-media-title">Select Media</div>
                         <ul class="pub-media-list">
                             <li><a href="https://www.washingtonpost.com/wellness/2025/10/05/friends-activities-happiness-research/" target="_blank">Washington Post</a></li>
@@ -543,23 +564,17 @@
 
                 <li class="pub-item">
                     <div class="pub-year">2026</div>
-                    <div class="pub-title">Harnessing artificial intelligence to facilitate difficult conversations</div>
+                    <div class="pub-title">Harnessing artificial intelligence to facilitate difficult conversations&nbsp;<a class="pub-link" href="https://journals.sagepub.com/doi/10.1177/19485506261444068" target="_blank" rel="noopener" aria-label="Read paper (opens in new tab)">&#8599;</a></div>
                     <div class="pub-authors">Maheshka, C., <strong>Folk, D.</strong>, &amp; Dunn, E.</div>
                     <div class="pub-venue">Social Psychological and Personality Science</div>
-                    <div class="pub-links">
-                        <a href="https://journals.sagepub.com/doi/10.1177/19485506261444068" target="_blank">Link</a>
-                    </div>
-                </li>
+                                    </li>
 
                 <li class="pub-item">
                     <div class="pub-year">2026</div>
-                    <div class="pub-title">Is a random human peer better than a highly supportive chatbot in reducing loneliness over time?</div>
+                    <div class="pub-title">Is a random human peer better than a highly supportive chatbot in reducing loneliness over time?&nbsp;<a class="pub-link" href="https://doi.org/10.1016/j.jesp.2026.104911" target="_blank" rel="noopener" aria-label="Read paper (opens in new tab)">&#8599;</a></div>
                     <div class="pub-authors">Li, R.-N., <strong>Folk, D.</strong>, Singh, A., Ungar, L., &amp; Dunn, E.</div>
                     <div class="pub-venue">Journal of Experimental Social Psychology</div>
-                    <div class="pub-links">
-                        <a href="https://doi.org/10.1016/j.jesp.2026.104911" target="_blank">Link</a>
-                    </div>
-                    <div class="pub-media">
+                                        <div class="pub-media">
                         <div class="pub-media-title">Select Media</div>
                         <ul class="pub-media-list">
                             <li><a href="https://www.404media.co/chatgpt-loneliness-study-college-students-random-strangers-texting/" target="_blank">404 Media</a></li>
@@ -569,93 +584,66 @@
 
                 <li class="pub-item">
                     <div class="pub-year">2025</div>
-                    <div class="pub-title">Cultural variation in attitudes towards social chatbots</div>
+                    <div class="pub-title">Cultural variation in attitudes towards social chatbots&nbsp;<a class="pub-link" href="https://doi.org/10.1177/00220221251317950" target="_blank" rel="noopener" aria-label="Read paper (opens in new tab)">&#8599;</a></div>
                     <div class="pub-authors"><strong>Folk, D.</strong>, Wu, C., &amp; Heine, S.</div>
                     <div class="pub-venue">Journal of Cross-Cultural Psychology</div>
-                    <div class="pub-links">
-                        <a href="https://doi.org/10.1177/00220221251317950" target="_blank">Link</a>
-                    </div>
-                </li>
+                                    </li>
 
                 <li class="pub-item">
                     <div class="pub-year">2025</div>
-                    <div class="pub-title">Individual differences in anthropomorphism explain social connection to AI companions</div>
+                    <div class="pub-title">Individual differences in anthropomorphism explain social connection to AI companions&nbsp;<a class="pub-link" href="https://doi.org/10.1038/s41598-025-19212-2" target="_blank" rel="noopener" aria-label="Read paper (opens in new tab)">&#8599;</a></div>
                     <div class="pub-authors"><strong>Folk, D.</strong>, Heine, S., &amp; Dunn, E.</div>
                     <div class="pub-venue">Scientific Reports</div>
-                    <div class="pub-links">
-                        <a href="https://doi.org/10.1038/s41598-025-19212-2" target="_blank">Link</a>
-                    </div>
-                </li>
+                                    </li>
 
                 <li class="pub-item">
                     <div class="pub-year">2025</div>
-                    <div class="pub-title">The varieties of nonreligious experience: meaning in life among believers, non-believers, and the spiritual but not religious</div>
+                    <div class="pub-title">The varieties of nonreligious experience: meaning in life among believers, non-believers, and the spiritual but not religious&nbsp;<a class="pub-link" href="https://doi.org/10.1080/2153599X.2025.2546324" target="_blank" rel="noopener" aria-label="Read paper (opens in new tab)">&#8599;</a></div>
                     <div class="pub-authors">Jettinghoff, W., <strong>Folk, D.</strong>, Radjaee, P., Willard, A., Norenzayan, A., &amp; Heine, S. J.</div>
                     <div class="pub-venue">Religion, Brain &amp; Behavior</div>
-                    <div class="pub-links">
-                        <a href="https://doi.org/10.1080/2153599X.2025.2546324" target="_blank">Link</a>
-                    </div>
-                </li>
+                                    </li>
 
                 <li class="pub-item">
                     <div class="pub-year">2025</div>
-                    <div class="pub-title">How sources of purpose predict meaning in life, happiness, and psychological richness across cultures</div>
+                    <div class="pub-title">How sources of purpose predict meaning in life, happiness, and psychological richness across cultures&nbsp;<a class="pub-link" href="https://doi.org/10.1080/17439760.2025.2500562" target="_blank" rel="noopener" aria-label="Read paper (opens in new tab)">&#8599;</a></div>
                     <div class="pub-authors">Mask, M., <strong>Folk, D.</strong>, &amp; Heine, S.</div>
                     <div class="pub-venue">Journal of Positive Psychology</div>
-                    <div class="pub-links">
-                        <a href="https://doi.org/10.1080/17439760.2025.2500562" target="_blank">Link</a>
-                    </div>
-                </li>
+                                    </li>
 
                 <li class="pub-item">
                     <div class="pub-year">2024</div>
-                    <div class="pub-title">Reply to: Strength of evidence for five happiness strategies</div>
+                    <div class="pub-title">Reply to: Strength of evidence for five happiness strategies&nbsp;<a class="pub-link" href="https://doi.org/10.1038/s41562-024-01955-z" target="_blank" rel="noopener" aria-label="Read paper (opens in new tab)">&#8599;</a></div>
                     <div class="pub-authors"><strong>Folk, D.</strong>, Dunn, E.</div>
                     <div class="pub-venue">Nature Human Behaviour</div>
-                    <div class="pub-links">
-                        <a href="https://doi.org/10.1038/s41562-024-01955-z" target="_blank">Link</a>
-                    </div>
-                </li>
+                                    </li>
 
                 <li class="pub-item">
                     <div class="pub-year">2024</div>
-                    <div class="pub-title">Can chatbots ever provide more social connection than humans?</div>
+                    <div class="pub-title">Can chatbots ever provide more social connection than humans?&nbsp;<a class="pub-link" href="https://doi.org/10.1525/collabra.117083" target="_blank" rel="noopener" aria-label="Read paper (opens in new tab)">&#8599;</a></div>
                     <div class="pub-authors"><strong>Folk, D.</strong>, Yu, S.J., &amp; Dunn, E.</div>
                     <div class="pub-venue">Collabra: Psychology</div>
-                    <div class="pub-links">
-                        <a href="https://doi.org/10.1525/collabra.117083" target="_blank">Link</a>
-                    </div>
-                </li>
+                                    </li>
 
                 <li class="pub-item">
                     <div class="pub-year">2024</div>
-                    <div class="pub-title">Examining the performance of the chi-square difference test when the unrestricted model is slightly misspecified</div>
+                    <div class="pub-title">Examining the performance of the chi-square difference test when the unrestricted model is slightly misspecified&nbsp;<a class="pub-link" href="https://doi.org/10.3758/s13428-024-02384-6" target="_blank" rel="noopener" aria-label="Read paper (opens in new tab)">&#8599;</a></div>
                     <div class="pub-authors"><strong>Folk, D.</strong> &amp; Savalei, V.</div>
                     <div class="pub-venue">Behavior Research Methods</div>
-                    <div class="pub-links">
-                        <a href="https://doi.org/10.3758/s13428-024-02384-6" target="_blank">Link</a>
-                    </div>
-                </li>
+                                    </li>
 
                 <li class="pub-item">
                     <div class="pub-year">2024</div>
-                    <div class="pub-title">Dare to know! The existential costs of a faith in science</div>
+                    <div class="pub-title">Dare to know! The existential costs of a faith in science&nbsp;<a class="pub-link" href="https://doi.org/10.1080/17439760.2024.2314294" target="_blank" rel="noopener" aria-label="Read paper (opens in new tab)">&#8599;</a></div>
                     <div class="pub-authors"><strong>Folk, D.</strong>, Rutjens, B. T., Van Elk, M., &amp; Heine, S.</div>
                     <div class="pub-venue">The Journal of Positive Psychology</div>
-                    <div class="pub-links">
-                        <a href="https://doi.org/10.1080/17439760.2024.2314294" target="_blank">Link</a>
-                    </div>
-                </li>
+                                    </li>
 
                 <li class="pub-item">
                     <div class="pub-year">2024</div>
-                    <div class="pub-title">How can people become happier? A systematic review of preregistered experiments</div>
+                    <div class="pub-title">How can people become happier? A systematic review of preregistered experiments&nbsp;<a class="pub-link" href="https://doi.org/10.1146/annurev-psych-022423-030818" target="_blank" rel="noopener" aria-label="Read paper (opens in new tab)">&#8599;</a></div>
                     <div class="pub-authors"><strong>Folk, D.</strong> &amp; Dunn, E.</div>
                     <div class="pub-venue">Annual Review of Psychology</div>
-                    <div class="pub-links">
-                        <a href="https://doi.org/10.1146/annurev-psych-022423-030818" target="_blank">Link</a>
-                    </div>
-                    <div class="pub-media">
+                                        <div class="pub-media">
                         <div class="pub-media-title">Select Media</div>
                         <ul class="pub-media-list">
                             <li><a href="https://www.scientificamerican.com/article/heres-the-happiness-research-that-stands-up-to-scrutiny/" target="_blank">Scientific American</a></li>
@@ -666,13 +654,10 @@
 
                 <li class="pub-item">
                     <div class="pub-year">2023</div>
-                    <div class="pub-title">A systematic review of the strength of evidence for the most commonly recommended happiness strategies in mainstream media</div>
+                    <div class="pub-title">A systematic review of the strength of evidence for the most commonly recommended happiness strategies in mainstream media&nbsp;<a class="pub-link" href="https://doi.org/10.1038/s41562-023-01651-4" target="_blank" rel="noopener" aria-label="Read paper (opens in new tab)">&#8599;</a></div>
                     <div class="pub-authors"><strong>Folk, D.</strong> &amp; Dunn, E.</div>
                     <div class="pub-venue">Nature Human Behaviour</div>
-                    <div class="pub-links">
-                        <a href="https://doi.org/10.1038/s41562-023-01651-4" target="_blank">Link</a>
-                    </div>
-                    <div class="pub-media">
+                                        <div class="pub-media">
                         <div class="pub-media-title">Select Media</div>
                         <ul class="pub-media-list">
                             <li><a href="https://www.nytimes.com/2024/08/08/opinion/happiness-tracking-america.html" target="_blank">New York Times</a></li>
@@ -685,39 +670,30 @@
                     </div>
                     <div class="pub-cover" style="margin-top: 0.8rem;">
                         <div style="font-size: 0.85rem; color: var(--color-text); margin-bottom: 0.4rem;">Featured on the October 2023 cover of <em>Nature Human Behaviour</em></div>
-                        <img src="NHBcover.png" alt="Nature Human Behaviour cover, October 2023" style="width: 120px; border-radius: 4px; border: 1px solid #333;">
+                        <img src="NHBcover.png" alt="Nature Human Behaviour cover, October 2023" style="width: 120px; border-radius: 4px; border: 1px solid var(--color-border);">
                     </div>
                 </li>
 
                 <li class="pub-item">
                     <div class="pub-year">2021</div>
-                    <div class="pub-title">Changes in social connection during COVID-19 social distancing: It's not (household) size that matters, it's who you're with</div>
+                    <div class="pub-title">Changes in social connection during COVID-19 social distancing: It's not (household) size that matters, it's who you're with&nbsp;<a class="pub-link" href="https://doi.org/10.1371/journal.pone.0245009" target="_blank" rel="noopener" aria-label="Read paper (opens in new tab)">&#8599;</a></div>
                     <div class="pub-authors">Okabe-Miyamoto, K., <strong>Folk, D.</strong>, Lyubomirsky, S., &amp; Dunn, E.</div>
                     <div class="pub-venue">PloS One</div>
-                    <div class="pub-links">
-                        <a href="https://doi.org/10.1371/journal.pone.0245009" target="_blank">Link</a>
-                    </div>
-                </li>
+                                    </li>
 
                 <li class="pub-item">
                     <div class="pub-year">2021</div>
-                    <div class="pub-title">Dimensionality, item response theory, effect size attenuation, and test bias analyses of the self-importance of moral identity scale (SIMIS)</div>
+                    <div class="pub-title">Dimensionality, item response theory, effect size attenuation, and test bias analyses of the self-importance of moral identity scale (SIMIS)&nbsp;<a class="pub-link" href="https://doi.org/10.1080/00223891.2021.1991359" target="_blank" rel="noopener" aria-label="Read paper (opens in new tab)">&#8599;</a></div>
                     <div class="pub-authors">Lutz, P. K., O'Connor, B. P., &amp; <strong>Folk, D.</strong></div>
                     <div class="pub-venue">Journal of Personality Assessment</div>
-                    <div class="pub-links">
-                        <a href="https://doi.org/10.1080/00223891.2021.1991359" target="_blank">Link</a>
-                    </div>
-                </li>
+                                    </li>
 
                 <li class="pub-item">
                     <div class="pub-year">2020</div>
-                    <div class="pub-title">Did social connection decline during the first wave of COVID-19?: The role of extraversion</div>
+                    <div class="pub-title">Did social connection decline during the first wave of COVID-19?: The role of extraversion&nbsp;<a class="pub-link" href="https://doi.org/10.1525/collabra.365" target="_blank" rel="noopener" aria-label="Read paper (opens in new tab)">&#8599;</a></div>
                     <div class="pub-authors"><strong>Folk, D.</strong>, Okabe-Miyamoto, K., Dunn, E., &amp; Lyubomirsky, S.</div>
                     <div class="pub-venue">Collabra: Psychology</div>
-                    <div class="pub-links">
-                        <a href="https://doi.org/10.1525/collabra.365" target="_blank">Link</a>
-                    </div>
-                    <div class="pub-media">
+                                        <div class="pub-media">
                         <div class="pub-media-title">Select Media</div>
                         <ul class="pub-media-list">
                             <li><a href="https://www.washingtonpost.com/outlook/2020/05/05/extroverts-introverts-coronavirus-lockdown-happiness/" target="_blank">Washington Post</a></li>
@@ -728,13 +704,10 @@
                 <!-- === TEMPLATE FOR NEW PUBLICATIONS ===
                 <li class="pub-item">
                     <div class="pub-year">YEAR</div>
-                    <div class="pub-title">Paper Title Here</div>
+                    <div class="pub-title">Paper Title Here&nbsp;<a class="pub-link" href="DOI_URL" target="_blank" rel="noopener" aria-label="Read paper (opens in new tab)">&#8599;</a></div>
                     <div class="pub-authors">Author, A., <strong>Folk, D.</strong>, &amp; Author, B.</div>
                     <div class="pub-venue">Journal Name</div>
-                    <div class="pub-links">
-                        <a href="DOI_URL" target="_blank">Link</a>
-                    </div>
-                    <div class="pub-media">
+                                        <div class="pub-media">
                         <div class="pub-media-title">Select Media</div>
                         <ul class="pub-media-list">
                             <li><a href="#" target="_blank">Outlet - Title</a></li>
@@ -773,12 +746,6 @@
             document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
             event.currentTarget.classList.add('active');
             document.querySelector('.nav-links').classList.remove('open');
-            var navName = document.getElementById('nav-name');
-            if (id === 'home') {
-                navName.classList.add('hidden');
-            } else {
-                navName.classList.remove('hidden');
-            }
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
